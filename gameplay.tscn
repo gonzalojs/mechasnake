@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://2kgllvnq3y4h"]
 
-[node name="Gameplay" type="Node2D" unique_id=505203545]
+[ext_resource type="Script" uid="uid://cy3v7munu0oph" path="res://scripts/gameplay.gd" id="1_n4psk"]
+[ext_resource type="Script" uid="uid://brjyktbg5y7ys" path="res://scripts/button_capture.gd" id="2_ej4tk"]
+[ext_resource type="PackedScene" uid="uid://cn2146kw4gtdc" path="res://snake/snake_head.tscn" id="3_oe8ih"]
+
+[node name="Gameplay" type="Node2D" unique_id=505203545 node_paths=PackedStringArray("button_event", "head")]
+script = ExtResource("1_n4psk")
+button_event = NodePath("Components/ButtonCapture")
+head = NodePath("SnakeHead")
+
+[node name="Components" type="Node" parent="." unique_id=964352448]
+
+[node name="ButtonCapture" type="Node" parent="Components" unique_id=1722095794]
+script = ExtResource("2_ej4tk")
+
+[node name="SnakeHead" parent="." unique_id=852333122 instance=ExtResource("3_oe8ih")]
+position = Vector2(32, 64)

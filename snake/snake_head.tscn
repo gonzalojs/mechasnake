@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://cn2146kw4gtdc"]
 
 [ext_resource type="Texture2D" uid="uid://cjsp8icrc7jxc" path="res://assets/Head.png" id="1_j5f5c"]
+[ext_resource type="Script" uid="uid://dtjhvkv6dhsb1" path="res://scripts/snake_head.gd" id="1_kly2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5f5c"]
+size = Vector2(26, 32)
 
 [node name="SnakeHead" type="Area2D" unique_id=852333122]
+script = ExtResource("1_kly2v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=202973343]
 texture = ExtResource("1_j5f5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347884766]
+shape = SubResource("RectangleShape2D_j5f5c")
