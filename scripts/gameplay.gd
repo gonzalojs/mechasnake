@@ -32,4 +32,5 @@ func _physics_process(delta: float) -> void:
 	
 
 func _uptdate_snake():
-	head.position = head.position + move_dir * Globals.grid_size
+	var new_pos : Vector2 = head.position + move_dir * Globals.grid_size
+	head.move_to(new_pos)

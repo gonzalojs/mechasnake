@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cy3v7munu0oph" path="res://scripts/gameplay.gd" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://brjyktbg5y7ys" path="res://scripts/button_capture.gd" id="2_ej4tk"]
 [ext_resource type="PackedScene" uid="uid://cn2146kw4gtdc" path="res://snake/snake_head.tscn" id="3_oe8ih"]
+[ext_resource type="Script" uid="uid://dusjlwiv7qlxl" path="res://scripts/bounds.gd" id="4_xuee5"]
 
 [node name="Gameplay" type="Node2D" unique_id=505203545 node_paths=PackedStringArray("button_event", "head")]
 script = ExtResource("1_n4psk")
@@ -16,3 +17,13 @@ script = ExtResource("2_ej4tk")
 
 [node name="SnakeHead" parent="." unique_id=852333122 instance=ExtResource("3_oe8ih")]
 position = Vector2(32, 64)
+
+[node name="Bounds" type="Node2D" parent="." unique_id=1933460772]
+script = ExtResource("4_xuee5")
+
+[node name="UpperLeft" type="Marker2D" parent="Bounds" unique_id=1689000409]
+unique_name_in_owner = true
+
+[node name="LowerRight" type="Marker2D" parent="Bounds" unique_id=1146852725]
+unique_name_in_owner = true
+position = Vector2(800, 448)
