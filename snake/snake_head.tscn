@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cn2146kw4gtdc"]
+
+[ext_resource type="Texture2D" uid="uid://cjsp8icrc7jxc" path="res://assets/Head.png" id="1_j5f5c"]
+
+[node name="SnakeHead" type="Area2D" unique_id=852333122]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=202973343]
+texture = ExtResource("1_j5f5c")
