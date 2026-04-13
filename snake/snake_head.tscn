@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://dtjhvkv6dhsb1" path="res://scripts/snake_head.gd" id="1_kly2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5f5c"]
-size = Vector2(26, 32)
+size = Vector2(12, 16)
 
 [node name="SnakeHead" type="Area2D" unique_id=852333122]
 script = ExtResource("1_kly2v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=202973343]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_j5f5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347884766]

@@ -25,6 +25,10 @@ Signals="*uid://mfmynyalfjlv"
 window/size/viewport_width=800
 window/size/viewport_height=448
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/wakatime/plugin.cfg")
+
 [input]
 
 up={

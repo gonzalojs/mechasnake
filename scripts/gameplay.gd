@@ -3,6 +3,7 @@ class_name Gameplay extends Node2D
 @export_category("References:")
 @export var button_event : ButtonCaptureComponent
 @export var head : Snake_Head
+@export var bounds : Bounds
 
 var move_dir : Vector2 = Vector2.RIGHT #Direccion inicial
 var time_between_moves : float = 1000.0
@@ -33,4 +34,9 @@ func _physics_process(delta: float) -> void:
 
 func _uptdate_snake():
 	var new_pos : Vector2 = head.position + move_dir * Globals.grid_size
+	new_pos = bounds.wrap_vector(new_pos)
 	head.move_to(new_pos)
+
+#Comentando solo para ver si wakatime pesca la wea
+func _a_ver_si_funciona():
+	pass
