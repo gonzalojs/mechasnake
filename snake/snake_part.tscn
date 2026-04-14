@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://byionw850seqa"]
-
-[ext_resource type="Script" uid="uid://b14jyb52t3504" path="res://scripts/snake_part.gd" id="1_85op6"]
-
-[node name="SnakePart" type="Area2D" unique_id=1941683946]
-script = ExtResource("1_85op6")
-metadata/_custom_type_script = "uid://b14jyb52t3504"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212145479]

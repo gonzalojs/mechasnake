@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://byionw850seqa"]
+
+[ext_resource type="Script" uid="uid://n1m3wi2255yv" path="res://scripts/tail.gd" id="1_4vgik"]
+
+[node name="Tail" type="Area2D" unique_id=1941683946]
+script = ExtResource("1_4vgik")
+metadata/_custom_type_script = "uid://b14jyb52t3504"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212145479]
