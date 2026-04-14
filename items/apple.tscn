@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ukrcxp7gts63"]
+
+[ext_resource type="Texture2D" uid="uid://b5tbja4mvtr44" path="res://assets/manzana.png" id="1_vx7mh"]
+
+[node name="Apple" type="Area2D" unique_id=1991763053]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1712590013]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2004442896]
+texture = ExtResource("1_vx7mh")
