@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bovxjfwxd7dfb" path="res://assets/Tile.png" id="2_smepj"]
 [ext_resource type="PackedScene" uid="uid://cn2146kw4gtdc" path="res://snake/snake_head.tscn" id="3_oe8ih"]
 [ext_resource type="Script" uid="uid://dusjlwiv7qlxl" path="res://scripts/bounds.gd" id="4_xuee5"]
+[ext_resource type="Script" uid="uid://duo8eva3at6xv" path="res://scripts/spawner.gd" id="6_cbffv"]
+[ext_resource type="PackedScene" uid="uid://ukrcxp7gts63" path="res://items/apple.tscn" id="7_fbudy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbffv"]
 texture = ExtResource("2_smepj")
@@ -18,11 +20,12 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_cbffv")
 
-[node name="Gameplay" type="Node2D" unique_id=505203545 node_paths=PackedStringArray("button_event", "head", "bounds")]
+[node name="Gameplay" type="Node2D" unique_id=505203545 node_paths=PackedStringArray("button_event", "head", "bounds", "spawner")]
 script = ExtResource("1_n4psk")
 button_event = NodePath("Components/ButtonCapture")
 head = NodePath("SnakeHead")
 bounds = NodePath("Bounds")
+spawner = NodePath("Spawner")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=334106229]
 position = Vector2(16, 16)
@@ -46,3 +49,8 @@ unique_name_in_owner = true
 [node name="LowerRight" type="Marker2D" parent="Bounds" unique_id=1146852725]
 unique_name_in_owner = true
 position = Vector2(800, 448)
+
+[node name="Spawner" type="Node2D" parent="." unique_id=2018045955 node_paths=PackedStringArray("bounds")]
+script = ExtResource("6_cbffv")
+bounds = NodePath("../Bounds")
+manzana = ExtResource("7_fbudy")

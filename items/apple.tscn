@@ -2,9 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://b5tbja4mvtr44" path="res://assets/manzana.png" id="1_vx7mh"]
 
-[node name="Apple" type="Area2D" unique_id=1991763053]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vx7mh"]
+radius = 17.029387
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1712590013]
+[node name="Apple" type="Area2D" unique_id=1991763053]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2004442896]
 texture = ExtResource("1_vx7mh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1712590013]
+shape = SubResource("CircleShape2D_vx7mh")

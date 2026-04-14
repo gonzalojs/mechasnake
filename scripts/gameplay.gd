@@ -4,11 +4,15 @@ class_name Gameplay extends Node2D
 @export var button_event : ButtonCaptureComponent
 @export var head : Snake_Head
 @export var bounds : Bounds
+@export var spawner : Spawner
 
 var move_dir : Vector2 = Vector2.RIGHT #Direccion inicial
-var time_between_moves : float = 1000.0
+var time_between_moves : float = 100.0
 var time_since_last_move : float = 0.0
 var speed : float = 1000.0
+
+func _ready() -> void:
+	spawner.spawn_food()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
