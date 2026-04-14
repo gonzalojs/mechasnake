@@ -12,6 +12,7 @@ var time_since_last_move : float = 0.0
 var speed : float = 1000.0
 
 func _ready() -> void:
+	Signals.food_eaten.connect(_on_food_eaten)
 	spawner.spawn_food()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -41,6 +42,5 @@ func _uptdate_snake():
 	new_pos = bounds.wrap_vector(new_pos)
 	head.move_to(new_pos)
 
-#Comentando solo para ver si wakatime pesca la wea
-func _a_ver_si_funciona():
-	pass
+func _on_food_eaten():
+	print('me comi la wea')
