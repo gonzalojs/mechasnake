@@ -7,6 +7,7 @@
 size = Vector2(12, 16)
 
 [node name="SnakeHead" type="Area2D" unique_id=852333122]
+collision_mask = 15
 script = ExtResource("1_kly2v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=202973343]
@@ -15,3 +16,5 @@ texture = ExtResource("1_j5f5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347884766]
 shape = SubResource("RectangleShape2D_j5f5c")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

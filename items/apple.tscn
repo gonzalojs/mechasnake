@@ -6,6 +6,8 @@
 radius = 17.029387
 
 [node name="Apple" type="Area2D" unique_id=1991763053]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2004442896]
 texture = ExtResource("1_vx7mh")
