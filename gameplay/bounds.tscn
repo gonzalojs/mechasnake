@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://gjwqyd2lo0hg"]
+
+[ext_resource type="Script" uid="uid://dusjlwiv7qlxl" path="res://scripts/bounds.gd" id="1_afcc4"]
+
+[node name="Bounds" type="Node2D" unique_id=432621992]
+script = ExtResource("1_afcc4")
+
+[node name="UpperLeft" type="Marker2D" parent="." unique_id=1754369879]
+unique_name_in_owner = true
+
+[node name="LowerRight" type="Marker2D" parent="." unique_id=1459455502]
+unique_name_in_owner = true
+position = Vector2(800, 448)
