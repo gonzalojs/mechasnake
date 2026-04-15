@@ -7,7 +7,7 @@ class_name Gameplay extends Node2D
 @export var spawner : Spawner
 
 var move_dir : Vector2 = Vector2.RIGHT #Direccion inicial
-var time_between_moves : float = 100.0
+var time_between_moves : float = 500.0
 var time_since_last_move : float = 0.0
 var speed : float = 1000.0
 var snake_parts : Array[SnakePart] = []
