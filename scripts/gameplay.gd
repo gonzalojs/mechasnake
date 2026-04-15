@@ -27,14 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("up"):
-		move_dir = Vector2.UP
-	if Input.is_action_just_pressed("down"):
-		move_dir = Vector2.DOWN
-	if Input.is_action_just_pressed("left"):
-		move_dir = Vector2.LEFT
-	if Input.is_action_just_pressed("right"):
-		move_dir = Vector2.RIGHT
+	pass
 
 func _physics_process(delta: float) -> void:
 	time_since_last_move += delta * speed
@@ -44,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func _uptdate_snake():
-	var new_pos : Vector2 = head.position + move_dir * Globals.grid_size
+	var new_pos : Vector2 = head.position + button_event.move_dir * Globals.grid_size
 	new_pos = bounds.wrap_vector(new_pos)
 	head.move_to(new_pos)
 	

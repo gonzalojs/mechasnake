@@ -1,14 +1,13 @@
 class_name ButtonCaptureComponent extends Node
 
-
-var _button_input : InputEvent
+var move_dir : Vector2 = Vector2.RIGHT #Direccion inicial
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_pressed("up"):
-		_button_input = event
+		move_dir = Vector2.UP
 	if Input.is_action_pressed("down"):
-		_button_input = event
+		move_dir = Vector2.DOWN
 	if Input.is_action_pressed("left"):
-		_button_input = event
+		move_dir = Vector2.LEFT
 	if Input.is_action_pressed("right"):
-		_button_input = event
+		move_dir = Vector2.RIGHT
