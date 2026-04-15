@@ -6,11 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hd8hn"]
 size = Vector2(24, 30)
 
-[node name="Tail" type="Area2D" unique_id=1941683946]
+[node name="Tail" type="Area2D" unique_id=1941683946 groups=["snake"]]
+collision_mask = 15
 script = ExtResource("1_4vgik")
+textures = Array[Texture]([ExtResource("2_a1lef")])
 metadata/_custom_type_script = "uid://b14jyb52t3504"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576997839]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=576997839]
 texture = ExtResource("2_a1lef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212145479]

@@ -7,13 +7,14 @@ class_name Gameplay extends Node2D
 @export var spawner : Spawner
 
 var move_dir : Vector2 = Vector2.RIGHT #Direccion inicial
-var time_between_moves : float = 500.0
+var time_between_moves : float = 250.0
 var time_since_last_move : float = 0.0
 var speed : float = 1000.0
 var snake_parts : Array[SnakePart] = []
 
 func _ready() -> void:
 	Signals.food_eaten.connect(_on_food_eaten)
+	Signals.collided_with_tail.connect(_on_tail_collided)
 	Signals.tail_added.connect(_on_tail_added)
 	spawner.spawn_food()
 	
@@ -47,6 +48,11 @@ func _uptdate_snake():
 func _on_food_eaten():
 	spawner.call_deferred("spawn_food")
 	spawner.call_deferred("spawn_tail", snake_parts[snake_parts.size() - 1].last_position)
+	#increase speed with score
+	speed += 100
 
 func _on_tail_added(tail : Tail):
 	snake_parts.push_back(tail)
+
+func _on_tail_collided():
+	print('game over')

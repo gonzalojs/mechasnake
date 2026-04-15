@@ -19,10 +19,12 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_cbffv")
 
-[node name="Gameplay" type="Node2D" unique_id=505203545 node_paths=PackedStringArray("button_event", "head")]
+[node name="Gameplay" type="Node2D" unique_id=505203545 node_paths=PackedStringArray("button_event", "head", "bounds", "spawner")]
 script = ExtResource("1_n4psk")
 button_event = NodePath("Components/ButtonCapture")
 head = NodePath("SnakeHead")
+bounds = NodePath("Bounds")
+spawner = NodePath("Spawner")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=334106229]
 position = Vector2(16, 16)
@@ -39,4 +41,5 @@ position = Vector2(32, 32)
 
 [node name="Bounds" parent="." unique_id=432621992 instance=ExtResource("5_cbffv")]
 
-[node name="Spawner" parent="." unique_id=538482578 instance=ExtResource("6_fbudy")]
+[node name="Spawner" parent="." unique_id=538482578 node_paths=PackedStringArray("bounds") instance=ExtResource("6_fbudy")]
+bounds = NodePath("../Bounds")

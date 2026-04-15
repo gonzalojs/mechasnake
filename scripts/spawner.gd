@@ -1,6 +1,5 @@
 class_name Spawner extends Node2D
 
-#signals
 #export var
 @export_category("References")
 @export var bounds : Bounds
