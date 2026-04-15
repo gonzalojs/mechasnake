@@ -10,6 +10,7 @@ var move_dir : Vector2 = Vector2.RIGHT #Direccion inicial
 var time_between_moves : float = 100.0
 var time_since_last_move : float = 0.0
 var speed : float = 1000.0
+var snake_parts : Array[SnakePart] = []
 
 func _ready() -> void:
 	Signals.food_eaten.connect(_on_food_eaten)
