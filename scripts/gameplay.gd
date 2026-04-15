@@ -43,4 +43,4 @@ func _uptdate_snake():
 	head.move_to(new_pos)
 
 func _on_food_eaten():
-	print('me comi la wea')
+	spawner.call_deferred("spawn_food")
