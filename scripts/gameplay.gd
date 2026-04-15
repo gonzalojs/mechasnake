@@ -14,7 +14,12 @@ var snake_parts : Array[SnakePart] = []
 
 func _ready() -> void:
 	Signals.food_eaten.connect(_on_food_eaten)
+	Signals.tail_added.connect(_on_tail_added)
 	spawner.spawn_food()
+	
+	#Agregando la cabeza para que haya una pieza que seguir al inicio
+	# snake_parts siempre tendra al menos la cabeza
+	snake_parts.push_back(head)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
@@ -42,6 +47,13 @@ func _uptdate_snake():
 	var new_pos : Vector2 = head.position + move_dir * Globals.grid_size
 	new_pos = bounds.wrap_vector(new_pos)
 	head.move_to(new_pos)
+	
+	for i in range(1, snake_parts.size(), 1):
+		snake_parts[i].move_to(snake_parts[i-1].last_position)
 
 func _on_food_eaten():
 	spawner.call_deferred("spawn_food")
+	spawner.call_deferred("spawn_tail", snake_parts[snake_parts.size() - 1].last_position)
+
+func _on_tail_added(tail : Tail):
+	snake_parts.push_back(tail)

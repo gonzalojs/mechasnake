@@ -7,6 +7,7 @@ class_name Spawner extends Node2D
 @export var manzana : PackedScene
 # instantiating packed scenes
 var manzana_scene : PackedScene = preload("res://items/apple.tscn")
+var tail_scene : PackedScene = preload("res://snake/tail.tscn")
 
 
 func spawn_food():
@@ -23,3 +24,9 @@ func spawn_food():
 	food.position = spawn_point
 	# 3 where we're putting it (parenting)
 	get_parent().add_child(food)
+
+func spawn_tail(pos : Vector2):
+	var tail : Tail = tail_scene.instantiate() as Tail
+	tail.position = pos
+	get_parent().add_child(tail)
+	Signals.tail_added.emit(tail)
