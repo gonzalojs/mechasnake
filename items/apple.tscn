@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b5tbja4mvtr44" path="res://assets/manzana.png" id="1_vx7mh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vx7mh"]
-radius = 17.029387
+radius = 12.369317
 
 [node name="Apple" type="Area2D" unique_id=1991763053 groups=["food"]]
 collision_layer = 2

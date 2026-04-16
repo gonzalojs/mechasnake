@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cjsp8icrc7jxc" path="res://assets/Head.png" id="1_j5f5c"]
 [ext_resource type="Script" uid="uid://dtjhvkv6dhsb1" path="res://scripts/snake_head.gd" id="1_kly2v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5f5c"]
-size = Vector2(12, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_kly2v"]
+radius = 5.0990195
 
 [node name="SnakeHead" type="Area2D" unique_id=852333122]
 collision_mask = 15
@@ -15,6 +15,6 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_j5f5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347884766]
-shape = SubResource("RectangleShape2D_j5f5c")
+shape = SubResource("CircleShape2D_kly2v")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
