@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c36dw4hw2xa1m"]
 
+[ext_resource type="Script" uid="uid://jxx2ksnt7l8c" path="res://gameplay/start_menu.gd" id="1_chhbq"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7ufy"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -37,6 +39,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="StartScreen" type="CanvasLayer" unique_id=524647254]
+script = ExtResource("1_chhbq")
 
 [node name="Panel" type="Panel" parent="." unique_id=461892011]
 anchors_preset = 15
@@ -59,6 +62,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Title" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1559856876]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -77,6 +81,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Start" type="Button" parent="Panel/HBoxContainer/VBoxContainer/MarginContainer/Botones" unique_id=1968546844]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.11764706, 0.1764706, 0.17254902, 1)
@@ -87,6 +92,7 @@ text = "Play
 "
 
 [node name="Options" type="Button" parent="Panel/HBoxContainer/VBoxContainer/MarginContainer/Botones" unique_id=1398689132]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.11764706, 0.1764706, 0.17254902, 1)
@@ -96,6 +102,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_chhbq")
 text = "Options"
 
 [node name="Quit" type="Button" parent="Panel/HBoxContainer/VBoxContainer/MarginContainer/Botones" unique_id=1856843515]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.11764706, 0.1764706, 0.17254902, 1)
 theme_override_constants/outline_size = 12
@@ -103,3 +110,7 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_thp85")
 text = "Quit
 "
+
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/MarginContainer/Botones/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/MarginContainer/Botones/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/MarginContainer/Botones/Quit" to="." method="_on_quit_pressed"]
