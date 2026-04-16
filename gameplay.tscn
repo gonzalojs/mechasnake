@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cy3v7munu0oph" path="res://scripts/gameplay.gd" id="1_n4psk"]
 [ext_resource type="Script" uid="uid://brjyktbg5y7ys" path="res://scripts/button_capture.gd" id="2_ej4tk"]
+[ext_resource type="PackedScene" uid="uid://dw7qqf43ngdtt" path="res://gameplay/game_over_menu.tscn" id="2_fbudy"]
 [ext_resource type="Texture2D" uid="uid://bovxjfwxd7dfb" path="res://assets/Tile.png" id="2_smepj"]
 [ext_resource type="PackedScene" uid="uid://cn2146kw4gtdc" path="res://snake/snake_head.tscn" id="3_oe8ih"]
 [ext_resource type="PackedScene" uid="uid://gjwqyd2lo0hg" path="res://gameplay/bounds.tscn" id="5_cbffv"]
@@ -25,6 +26,7 @@ button_event = NodePath("Components/ButtonCapture")
 head = NodePath("SnakeHead")
 bounds = NodePath("Bounds")
 spawner = NodePath("Spawner")
+gameover_scene = ExtResource("2_fbudy")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=334106229]
 position = Vector2(16, 16)

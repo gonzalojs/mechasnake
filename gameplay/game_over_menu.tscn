@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dw7qqf43ngdtt"]
+
+[ext_resource type="Script" uid="uid://c1srylsps5cq6" path="res://scripts/game_over_menu.gd" id="1_4jubh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upvav"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.3121318, 0.74174887, 1.2564756, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jubh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.8392157, 0.101960786, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="GameOverMenu" type="CanvasLayer" unique_id=1412685228]
+process_mode = 3
+script = ExtResource("1_4jubh")
+
+[node name="Panel" type="Panel" parent="." unique_id=1690249116]
+modulate = Color(1, 1, 1, 0.4745098)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1155980439]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=147713807]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1545207335]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 72
+text = "GAME OVER"
+
+[node name="ScoreLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1401520239]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 48
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1138529836]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1756418, 0.5504876, 0.8710376, 1)
+text = "New High Score!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1127713837]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/VBoxContainer/MarginContainer" unique_id=2000685688]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="RestartButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/MarginContainer/GridContainer" unique_id=1109381111]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_upvav")
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="Panel/HBoxContainer/VBoxContainer/MarginContainer/GridContainer" unique_id=1136096578]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4jubh")
+text = "Quit"
+
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/MarginContainer/GridContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/MarginContainer/GridContainer/QuitButton" to="." method="_on_quit_button_pressed"]
