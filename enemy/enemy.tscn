@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://km7il1o5rgd6"]
+
+[ext_resource type="Texture2D" uid="uid://31uqjmsd6vw5" path="res://icon.png" id="1_2mvqj"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_ppra6"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_p200p"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_p200p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofsxj"]
+radius = 15.033297
+
+[node name="Enemy" type="CharacterBody2D" unique_id=2102782029]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1640033432]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2mvqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1900922681]
+shape = SubResource("CircleShape2D_ofsxj")
+
+[node name="StateChart" type="Node" parent="." unique_id=1040757341]
+script = ExtResource("2_ppra6")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="StateChart" unique_id=1135601228]
+script = ExtResource("3_p200p")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root" unique_id=984735888]
+script = ExtResource("4_p200p")
+
+[node name="Attack" type="Node" parent="StateChart/Root" unique_id=887627384]
+script = ExtResource("4_p200p")

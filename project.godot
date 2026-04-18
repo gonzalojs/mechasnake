@@ -28,7 +28,7 @@ window/size/viewport_height=448
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/wakatime/plugin.cfg")
 
 [input]
 
