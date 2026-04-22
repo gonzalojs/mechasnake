@@ -49,3 +49,9 @@ bounds = NodePath("../Bounds")
 
 [node name="Enemy" parent="." unique_id=2102782029 instance=ExtResource("8_0m7cd")]
 position = Vector2(352, 128)
+
+[node name="SpawnAreaOutside" type="Area2D" parent="." unique_id=516265632]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpawnAreaOutside" unique_id=1303877192]
+build_mode = 1
+polygon = PackedVector2Array(0, 0, 832, 0, 832, 512, -32, 512, -32, 0)
