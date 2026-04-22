@@ -93,6 +93,8 @@ escape={
 2d_physics/layer_2="food"
 2d_physics/layer_3="items"
 2d_physics/layer_4="people"
+2d_physics/layer_5="bala"
+2d_physics/layer_6="cabeza"
 
 [physics]
 

@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_ppra6"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_p200p"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_p200p"]
+[ext_resource type="Script" uid="uid://dikixfhsqssxf" path="res://godot_state_charts_examples/ant_hill/marker/marker.gd" id="6_1wwld"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ofsxj"]
 radius = 15.033297
@@ -13,6 +14,8 @@ radius = 15.033297
 radius = 101.00495
 
 [node name="Enemy" type="CharacterBody2D" unique_id=2102782029]
+collision_layer = 8
+collision_mask = 33
 motion_mode = 1
 script = ExtResource("1_pmsee")
 
@@ -43,5 +46,14 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1763469916]
 shape = SubResource("CircleShape2D_pmsee")
 
+[node name="ShootTimer" type="Timer" parent="." unique_id=1528059117]
+wait_time = 0.5
+autostart = true
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=547260931]
+script = ExtResource("6_1wwld")
+metadata/_custom_type_script = "uid://dikixfhsqssxf"
+
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

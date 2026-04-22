@@ -6,8 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kly2v"]
 radius = 5.0990195
 
-[node name="SnakeHead" type="Area2D" unique_id=852333122 groups=["snake"]]
-collision_mask = 15
+[node name="SnakeHead" type="Area2D" unique_id=852333122 groups=["head"]]
+collision_mask = 31
 script = ExtResource("1_kly2v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=202973343]
