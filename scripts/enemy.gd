@@ -7,7 +7,8 @@ var bullet_scene = preload("res://gameplay/balas/bala_1.tscn")
 
 @onready var snake = get_tree().get_first_node_in_group("head")
 @onready var shoot_timer: Timer = $ShootTimer
-@onready var spawn_point: Marker = $SpawnPoint
+@onready var spawn_point: Marker2D = $SpawnPoint
+
 
 
 func _physics_process(_delta: float) -> void:
@@ -17,15 +18,22 @@ func _physics_process(_delta: float) -> void:
 
 
 func shoot():
-	var bullet = bullet_scene.instantiate()
-	bullet.global_position = spawn_point.global_position
+	call_deferred("spawn_bullet")
+
+func spawn_bullet():
+	if not snakes.is_empty():
+		var bullet = bullet_scene.instantiate()
+		if not spawn_point or not is_instance_valid(spawn_point):
+			return
+
+		bullet.global_position = spawn_point.global_position
+
+		var target = snakes.pick_random().global_position
+		var dir_to_target = bullet.global_position.direction_to(target)
 	
-	var target = snakes[randi_range(0, snakes.size())].global_position
-	var dir_to_target = spawn_point.global_position.direction_to(target)
+		bullet.set_direction(dir_to_target)
 	
-	bullet.set_direction(dir_to_target)
-	
-	get_tree().root.add_child(bullet)
+		get_tree().root.add_child(bullet)
 
 #estas signals detectan cabeza y cuerpo. Tienen que detectar solo cuerpo
 #la cabeza debe ser detectada siempre por el enemigo, el cuerpo solo cuando est
@@ -38,5 +46,5 @@ func _on_detection_area_area_exited(area: Area2D) -> void:
 
 
 func _on_shoot_timer_timeout() -> void:
-	if snakes.size() >= 1:
+	if not snakes.is_empty():
 		shoot()

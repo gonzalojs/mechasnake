@@ -17,3 +17,10 @@ texture = ExtResource("1_icqra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=519669600]
 shape = SubResource("CapsuleShape2D_2ux1u")
+
+[node name="TimerDeath" type="Timer" parent="." unique_id=940006804]
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TimerDeath" to="." method="_on_timer_death_timeout"]
