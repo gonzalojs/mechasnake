@@ -9,6 +9,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ofsxj"]
 radius = 15.033297
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmsee"]
+radius = 101.00495
+
 [node name="Enemy" type="CharacterBody2D" unique_id=2102782029]
 motion_mode = 1
 script = ExtResource("1_pmsee")
@@ -33,3 +36,12 @@ script = ExtResource("4_p200p")
 
 [node name="Attack" type="Node" parent="StateChart/Root" unique_id=887627384]
 script = ExtResource("4_p200p")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1317474683]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1763469916]
+shape = SubResource("CircleShape2D_pmsee")
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
