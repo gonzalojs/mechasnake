@@ -6,3 +6,5 @@ signal food_eaten
 signal collided_with_tail
 @warning_ignore("unused_signal")
 signal tail_added(tail : Tail)
+@warning_ignore("unused_signal")
+signal enemy_added(mark : Marker2D)

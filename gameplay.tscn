@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://gjwqyd2lo0hg" path="res://gameplay/bounds.tscn" id="5_cbffv"]
 [ext_resource type="PackedScene" uid="uid://u7et5fmexe3i" path="res://gameplay/spawner.tscn" id="6_fbudy"]
 [ext_resource type="PackedScene" uid="uid://km7il1o5rgd6" path="res://enemy/enemy.tscn" id="8_0m7cd"]
+[ext_resource type="PackedScene" uid="uid://ukrcxp7gts63" path="res://items/apple.tscn" id="8_2ihbs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbffv"]
 texture = ExtResource("2_smepj")
@@ -46,6 +47,7 @@ position = Vector2(32, 32)
 
 [node name="Spawner" parent="." unique_id=538482578 node_paths=PackedStringArray("bounds") instance=ExtResource("6_fbudy")]
 bounds = NodePath("../Bounds")
+manzana = ExtResource("8_2ihbs")
 
 [node name="Enemy" parent="." unique_id=2102782029 instance=ExtResource("8_0m7cd")]
 position = Vector2(352, 128)
@@ -55,3 +57,58 @@ position = Vector2(352, 128)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpawnAreaOutside" unique_id=1303877192]
 build_mode = 1
 polygon = PackedVector2Array(0, 0, 832, 0, 832, 512, -32, 512, -32, 0)
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=504045769]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=658768671]
+position = Vector2(-32, -32)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=1265898811]
+position = Vector2(-32, 512)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=1897869709]
+position = Vector2(832, -32)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPoints" unique_id=897980370]
+position = Vector2(832, 512)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPoints" unique_id=1373862910]
+position = Vector2(384, -64)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPoints" unique_id=1474276286]
+position = Vector2(384, 544)
+
+[node name="Marker2D7" type="Marker2D" parent="SpawnPoints" unique_id=1735672910]
+position = Vector2(-64, 224)
+
+[node name="Marker2D8" type="Marker2D" parent="SpawnPoints" unique_id=565112406]
+position = Vector2(864, 224)
+
+[node name="Marker2D9" type="Marker2D" parent="SpawnPoints" unique_id=1904017465]
+position = Vector2(-64, 64)
+
+[node name="Marker2D10" type="Marker2D" parent="SpawnPoints" unique_id=1452045944]
+position = Vector2(-64, 384)
+
+[node name="Marker2D11" type="Marker2D" parent="SpawnPoints" unique_id=153911737]
+position = Vector2(160, 544)
+
+[node name="Marker2D12" type="Marker2D" parent="SpawnPoints" unique_id=403070125]
+position = Vector2(640, 544)
+
+[node name="Marker2D13" type="Marker2D" parent="SpawnPoints" unique_id=886376044]
+position = Vector2(864, 384)
+
+[node name="Marker2D14" type="Marker2D" parent="SpawnPoints" unique_id=1256557962]
+position = Vector2(864, 64)
+
+[node name="Marker2D15" type="Marker2D" parent="SpawnPoints" unique_id=599646009]
+position = Vector2(640, -64)
+
+[node name="Marker2D16" type="Marker2D" parent="SpawnPoints" unique_id=1710141736]
+position = Vector2(160, -64)
+
+[node name="SpawnEnemyTimer" type="Timer" parent="." unique_id=1038273136]
+autostart = true
+
+[connection signal="timeout" from="SpawnEnemyTimer" to="." method="_on_spawn_enemy_timer_timeout"]

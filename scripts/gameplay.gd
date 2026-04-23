@@ -7,6 +7,9 @@ class_name Gameplay extends Node2D
 @export var spawner : Spawner
 @export var gameover_scene : PackedScene
 
+@onready var spawn_points: Node2D = $SpawnPoints
+@onready var spawn_enemy_timer: Timer = $SpawnEnemyTimer
+
 var gameover_menu : GameOver
 
 var move_dir : Vector2 = Vector2.RIGHT #Direccion inicial
@@ -64,3 +67,7 @@ func _on_tail_collided():
 		gameover_menu = gameover_scene.instantiate() as GameOver
 		add_child(gameover_menu)
 		gameover_menu.set_score(score)
+
+
+func _on_spawn_enemy_timer_timeout() -> void:
+	spawner.spawn_enemy(spawn_points.get_children().pick_random())
